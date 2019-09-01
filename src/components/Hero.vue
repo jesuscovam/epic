@@ -1,0 +1,23 @@
+<template lang="html">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="hero center">
+          <h1 class="title">Epic</h1>
+          <h2 class="subtitle">Reserva experiencias</h2>
+        </div>
+      </div>
+      <div class=""></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="css" scoped>
+.center{
+  margin-top: 70px;
+}
+</style>
