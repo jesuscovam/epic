@@ -1,17 +1,17 @@
 <template lang="html">
   <b-navbar type="is-primary">
     <template slot="brand">
-      <b-navbar-item href="/">
+      <b-navbar-item tag="router-link" to="/">
         <h2 class="subtitle">epic</h2>
       </b-navbar-item>
     </template>
     <template slot="end">
-      <b-navbar-item to="/">
+      <b-navbar-item tag="router-link" to="/encuesta">
         <button class="button is-primary">
           Encuesta
         </button>
       </b-navbar-item>
-      <b-navbar-item to="/">
+      <b-navbar-item tag="router-link" to="/">
         <button class="button">
           Contacto
         </button>

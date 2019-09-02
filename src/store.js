@@ -6,8 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     valor1: 0,
-    valor2: "",
-    valor3: ""
+    valor2: ""
   },
   mutations: {
     add1(state, payload) {
@@ -15,16 +14,12 @@ export default new Vuex.Store({
     },
     add2(state, payload) {
       state.valor2 = payload.valor2;
-    },
-    add3(state, payload) {
-      state.valor3 = payload.valor3;
     }
   },
   actions: {
     addValues({ commit }, payload) {
       commit("add1", payload);
       commit("add2", payload);
-      commit("add3", payload);
     }
   }
 });
