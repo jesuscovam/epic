@@ -7,12 +7,12 @@
     </template>
     <template slot="end">
       <b-navbar-item tag="router-link" to="/encuesta">
-        <button class="button is-primary">
+        <button class="button  is-rounded is-outlined">
           Encuesta
         </button>
       </b-navbar-item>
       <b-navbar-item tag="router-link" to="/">
-        <button class="button">
+        <button class="button is-rounded">
           Contacto
         </button>
       </b-navbar-item>

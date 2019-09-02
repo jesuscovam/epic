@@ -4,7 +4,12 @@
       <div class="column">
         <div class="hero center">
           <h1 class="title">Epic</h1>
-          <h2 class="subtitle">Reserva experiencias</h2>
+          <h2 class="subtitle">Reserva experiencias en la Riviera Maya</h2>
+          <router-link to="encuesta">
+            <button class=" button is-primary is-rounded">
+              Encuesta
+            </button>
+          </router-link>
         </div>
       </div>
       <div class="column">

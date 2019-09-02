@@ -59,6 +59,7 @@
         <button class="button is-success" @click="mostrarReservas">
           Reservar
         </button>
+        <!-- MODAL -->
         <b-modal
           :active.sync="modal"
           :width="640"
@@ -73,6 +74,7 @@
               </p>
             </header>
             <section class="modal-card-body">
+              <p>Rellena los siguientes espacios por favor</p>
               <b-field label="Nombre">
                 <b-input
                   type="name"
