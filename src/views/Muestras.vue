@@ -22,7 +22,7 @@
             <div class="media">
               <div class="media-content">
                 <p class="title">{{ view.nombre }}</p>
-                <p v-if="view.reservar">Requiere reservación</p>
+                <p v-if="view.reservar" class="red">Requiere reservación</p>
                 {{ view.desc }}
                 <br />
                 <a
@@ -251,5 +251,9 @@ export default {
 .map{
   margin-top: 20px;
   padding-top: 20px
+}
+
+.red{
+  color: salmon;
 }
 </style>
