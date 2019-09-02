@@ -21,10 +21,32 @@
             <div class="media">
               <div class="media-content">
                 <p class="title">{{ view.nombre }}</p>
+
+                {{ view.desc }}
+                <br />
+                <a
+                  class="subtitle is-6 map"
+                  :href="view.map"
+                  target="_newBlank"
+                >
+                  <b-icon
+                    pack="fas"
+                    icon="map-pin"
+                    type="is-primary"
+                    size="is-small"
+                  >
+                  </b-icon>
+                  Mapa</a
+                >
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column ">
+        <button class="button is-success is-pulled-right">Reservar</button>
       </div>
     </div>
   </div>
@@ -61,11 +83,11 @@ export default {
         break;
 
       case "Reggaeton":
-        this.views.push(resp.data.playa.locales.rock.mac);
+        this.views.push(resp.data.playa.locales.reggaeton.vaquita);
         break;
 
       case "Electronica":
-        this.views.push(resp.data.playa.locales.rock.verbena);
+        this.views.push(resp.data.playa.locales.elect.cero);
         break;
 
       case "Salsa":
@@ -90,5 +112,10 @@ export default {
 .card{
   margin-top: 50px;
   display: block;
+}
+
+.map{
+  margin-top: 20px;
+  padding-top: 20px
 }
 </style>
