@@ -27,6 +27,7 @@ export default {};
 
 <style lang="css" scoped>
 .center{
-  margin-top: 70px;
+  margin-top: 90px;
+text-align: center;
 }
 </style>

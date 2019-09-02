@@ -56,7 +56,11 @@
     <div class="columns">
       <div class="column center ">
         <button class="button" @click="regresar">Regresar</button>
-        <button class="button is-success" @click="mostrarReservas">
+        <button
+          class="button is-success"
+          @click="mostrarReservas"
+          v-if="reserva.length > 0"
+        >
           Reservar
         </button>
         <!-- MODAL -->
@@ -69,12 +73,16 @@
           <div class="modal-card">
             <header class="modal-card-header">
               <p class="modal-card-head title">
-                {{ reserva }}
-                {{ fecha }}
+                Reservación
               </p>
             </header>
             <section class="modal-card-body">
-              <p>Rellena los siguientes espacios por favor</p>
+              <p>
+                De las experiencias que escogiste,
+                <strong>{{ reserva }}</strong> para el
+                <strong>{{ fecha }}</strong> requiere reservación. Si gustas
+                podemos agendarla con la siguiente información
+              </p>
               <b-field label="Nombre">
                 <b-input
                   type="name"
@@ -89,6 +97,15 @@
                   type="email"
                   v-model="enviar.correo"
                   placeholder="tu correo"
+                  required
+                >
+                </b-input>
+              </b-field>
+              <b-field label="WhatsApp">
+                <b-input
+                  type="text"
+                  v-model="enviar.numero"
+                  placeholder="tu numero"
                   required
                 >
                 </b-input>
@@ -115,7 +132,8 @@ export default {
       reservas: [],
       enviar: {
         nombre: "",
-        correo: ""
+        correo: "",
+        numero: ""
       }
     };
   },
@@ -163,9 +181,12 @@ export default {
       this.modal = false;
     },
     mostrarReservas() {
+      if (!this.fecha) {
+        alert("Hace falta una fecha");
+        return;
+      }
       this.modal = true;
       this.reservas = this.views.filter(experiencias => experiencias.reservar);
-      console.log(this.reservas);
     },
     async enviarData() {
       const enviarData = {
@@ -179,6 +200,10 @@ export default {
       );
       console.log(enviar);
       this.$router.push("/");
+    },
+    check() {
+      alert("hola");
+      console.log(this.reserva.length);
     }
   },
   computed: {
