@@ -38,6 +38,14 @@
                   </b-icon>
                   Mapa</a
                 >
+                <b-datepicker
+                  v-if="view.reservar"
+                  v-model="fechas"
+                  placeholder="Type or select a date..."
+                  icon="calendar-today"
+                  editable
+                >
+                </b-datepicker>
               </div>
             </div>
           </div>
@@ -45,8 +53,26 @@
       </div>
     </div>
     <div class="columns">
-      <div class="column ">
-        <button class="button is-success is-pulled-right">Reservar</button>
+      <div class="column center ">
+        <button class="button" @click="regresar">Regresar</button>
+        <button class="button is-success" @click="mostrarReservas">
+          Reservar
+        </button>
+        <b-modal
+          :active.sync="modal"
+          :width="640"
+          scroll="keep"
+          class="can-cancel"
+        >
+          <div class="modal-card">
+            <header class="modal-card-header">
+              <p class="modal-card-head title">
+                {{ reserva }}
+                {{ dia }}
+              </p>
+            </header>
+          </div>
+        </b-modal>
       </div>
     </div>
   </div>
@@ -57,7 +83,10 @@ import axios from "axios";
 export default {
   data() {
     return {
-      views: []
+      views: [],
+      modal: false,
+      fechas: "",
+      reservas: []
     };
   },
   async created() {
@@ -96,9 +125,39 @@ export default {
     }
     console.log(this.valores);
   },
+  methods: {
+    regresar() {
+      this.$router.push("encuesta");
+    },
+    cerrar() {
+      this.modal = false;
+    },
+    mostrarReservas() {
+      this.modal = true;
+      this.reservas = this.views.filter(experiencias => experiencias.reservar);
+      console.log(this.reservas);
+    }
+  },
   computed: {
     valores() {
       return this.cards;
+    },
+    agendar() {
+      const reservas = this.views.filter(experiencia => experiencia.reservar);
+      return reservas;
+    },
+    dia() {
+      if (this.fechas) {
+        return `${this.fechas.getDate()}-${this.fechas.getMonth()}-${this.fechas.getYear() -
+          100}`;
+      } else {
+        return "hola";
+      }
+    },
+    reserva() {
+      const exp = this.views.filter(exp => exp.reservar);
+      const nombre = exp.map(ex => ex.nombre);
+      return nombre.toString();
     }
   }
 };
