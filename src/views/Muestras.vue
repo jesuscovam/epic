@@ -6,6 +6,7 @@
       </div>
     </div>
     <div class="columns">
+      <!-- Exp1 -->
       <div
         class="column is-one-third center"
         v-for="view in views"
@@ -21,7 +22,7 @@
             <div class="media">
               <div class="media-content">
                 <p class="title">{{ view.nombre }}</p>
-
+                <p v-if="view.reservar">Requiere reservación</p>
                 {{ view.desc }}
                 <br />
                 <a
@@ -68,9 +69,32 @@
             <header class="modal-card-header">
               <p class="modal-card-head title">
                 {{ reserva }}
-                {{ dia }}
+                {{ fecha }}
               </p>
             </header>
+            <section class="modal-card-body">
+              <b-field label="Nombre">
+                <b-input
+                  type="name"
+                  v-model="enviar.nombre"
+                  placeholder="tu nombre"
+                  required
+                >
+                </b-input>
+              </b-field>
+              <b-field label="Correo">
+                <b-input
+                  type="email"
+                  v-model="enviar.correo"
+                  placeholder="tu correo"
+                  required
+                >
+                </b-input>
+              </b-field>
+              <button class="button is-success" @click="enviarData">
+                Enviar
+              </button>
+            </section>
           </div>
         </b-modal>
       </div>
@@ -86,12 +110,17 @@ export default {
       views: [],
       modal: false,
       fechas: "",
-      reservas: []
+      reservas: [],
+      enviar: {
+        nombre: "",
+        correo: ""
+      }
     };
   },
   async created() {
     const resp = await axios.get("https://epic-4408f.firebaseio.com/.json");
-    this.views.push(resp.data.tulum.cenotes.ruta);
+
+    this.views.push(resp.data.cenotes.tulum);
     switch (this.$store.state.valor1) {
       case "Parques":
         this.views.push(resp.data.playa.parques.xcaret);
@@ -123,7 +152,6 @@ export default {
         this.views.push(resp.data.playa.locales.salsa.bodega);
         break;
     }
-    console.log(this.valores);
   },
   methods: {
     regresar() {
@@ -136,28 +164,48 @@ export default {
       this.modal = true;
       this.reservas = this.views.filter(experiencias => experiencias.reservar);
       console.log(this.reservas);
+    },
+    async enviarData() {
+      const enviarData = {
+        ...this.enviar,
+        experiencia: this.reserva,
+        fecha: this.fecha
+      };
+      const enviar = await axios.post(
+        "https://cors-anywhere.herokuapp.com/https://epic-4408f.firebaseio.com/reservas.json",
+        enviarData
+      );
+      console.log(enviar);
+      this.$router.push("/");
     }
   },
   computed: {
-    valores() {
-      return this.cards;
-    },
     agendar() {
       const reservas = this.views.filter(experiencia => experiencia.reservar);
       return reservas;
     },
-    dia() {
+    fecha() {
       if (this.fechas) {
-        return `${this.fechas.getDate()}-${this.fechas.getMonth()}-${this.fechas.getYear() -
+        const fecha = `${this.fechas.getDate()}-${this.fechas.getMonth()}-${this.fechas.getYear() -
           100}`;
+        return fecha;
       } else {
-        return "hola";
+        return "";
       }
     },
     reserva() {
       const exp = this.views.filter(exp => exp.reservar);
       const nombre = exp.map(ex => ex.nombre);
+      console.log(exp);
       return nombre.toString();
+    }
+  },
+  watch: {
+    siReserva() {
+      const reserva = this.reserva();
+      if (reserva) {
+        this.siReserva = true;
+      }
     }
   }
 };

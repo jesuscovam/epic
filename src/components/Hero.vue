@@ -7,7 +7,11 @@
           <h2 class="subtitle">Reserva experiencias</h2>
         </div>
       </div>
-      <div class=""></div>
+      <div class="column">
+        <figure class="image">
+          <img src="../assets/epic-phone.png" alt="epic" />
+        </figure>
+      </div>
     </div>
   </div>
 </template>
