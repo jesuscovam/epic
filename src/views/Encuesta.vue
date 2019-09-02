@@ -28,7 +28,7 @@
           >
         </b-select>
       </b-field>
-      <p>Estados: {{ valores }}</p>
+
       <button class="button is-primary" @click="enviar">
         Enviar
       </button>
