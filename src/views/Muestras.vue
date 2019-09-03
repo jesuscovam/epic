@@ -83,36 +83,38 @@
                 <strong>{{ fecha }}</strong> requiere reservación. Si gustas
                 podemos agendarla con la siguiente información
               </p>
-              <b-field label="Nombre">
-                <b-input
-                  type="name"
-                  v-model="enviar.nombre"
-                  placeholder="tu nombre"
-                  required
-                >
-                </b-input>
-              </b-field>
-              <b-field label="Correo">
-                <b-input
-                  type="email"
-                  v-model="enviar.correo"
-                  placeholder="tu correo"
-                  required
-                >
-                </b-input>
-              </b-field>
-              <b-field label="WhatsApp">
-                <b-input
-                  type="text"
-                  v-model="enviar.numero"
-                  placeholder="tu numero"
-                  required
-                >
-                </b-input>
-              </b-field>
-              <button class="button is-success" @click="enviarData">
-                Enviar
-              </button>
+              <form @submit.prevent="enviarData">
+                <b-field label="Nombre">
+                  <b-input
+                    type="name"
+                    v-model="enviar.nombre"
+                    placeholder="tu nombre"
+                    required
+                  >
+                  </b-input>
+                </b-field>
+                <b-field label="Correo">
+                  <b-input
+                    type="email"
+                    v-model="enviar.correo"
+                    placeholder="tu correo"
+                    required
+                  >
+                  </b-input>
+                </b-field>
+                <b-field label="WhatsApp">
+                  <b-input
+                    type="text"
+                    v-model="enviar.numero"
+                    placeholder="tu numero"
+                    required
+                  >
+                  </b-input>
+                </b-field>
+                <button class="button is-success" type="submit">
+                  Enviar
+                </button>
+              </form>
             </section>
           </div>
         </b-modal>
@@ -200,10 +202,6 @@ export default {
       );
       console.log(enviar);
       this.$router.push("/");
-    },
-    check() {
-      alert("hola");
-      console.log(this.reserva.length);
     }
   },
   computed: {
@@ -225,14 +223,6 @@ export default {
       const nombre = exp.map(ex => ex.nombre);
       console.log(exp);
       return nombre.toString();
-    }
-  },
-  watch: {
-    siReserva() {
-      const reserva = this.reserva();
-      if (reserva) {
-        this.siReserva = true;
-      }
     }
   }
 };
