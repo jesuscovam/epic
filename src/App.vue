@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view />
+    <transition name="comps">
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>
@@ -99,5 +101,14 @@ video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
+}
+
+.comps-enter-active,
+.comps-leave-active {
+  transition: opacity 0.5s;
+}
+.comps-enter,
+.comps-leave-to {
+  opacity: 0;
 }
 </style>

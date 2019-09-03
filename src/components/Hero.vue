@@ -18,6 +18,7 @@
         </figure>
       </div>
     </div>
+    <div class="columns"></div>
   </div>
 </template>
 
@@ -28,6 +29,6 @@ export default {};
 <style lang="css" scoped>
 .center{
   margin-top: 90px;
-text-align: center;
+  text-align: center;
 }
 </style>
