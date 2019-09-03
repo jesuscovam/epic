@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="column is-one-third is-centered is-narrow center">
     <div class="box center">
-      <h1 class="title">Encuesta</h1>
+      <h1 class="title">Encuesta 🔍</h1>
       <b-field :label="preguntas[0].pregunta">
         <b-select
           placeholder="escoje"

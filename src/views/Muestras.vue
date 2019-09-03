@@ -2,7 +2,7 @@
   <div class="container">
     <div class="columns">
       <div class="column is-one-third center">
-        <h1 class="title center">Experiencias</h1>
+        <h1 class="title center">Experiencias 🗺️</h1>
       </div>
     </div>
     <div class="columns">
@@ -72,8 +72,8 @@
         >
           <div class="modal-card">
             <header class="modal-card-header">
-              <p class="modal-card-head title">
-                Reservación
+              <p class="modal-card-head title is-one-third ">
+                Reservación 🗓
               </p>
             </header>
             <section class="modal-card-body">
@@ -245,5 +245,9 @@ export default {
 
 .red{
   color: salmon;
+}
+
+.header{
+  text-align: center;
 }
 </style>
