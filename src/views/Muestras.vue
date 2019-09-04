@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="columns">
-      <div class="column center ">
+      <div class="column center buttons">
         <button class="button" @click="regresar">Regresar</button>
         <button
           class="button is-success"
@@ -249,5 +249,9 @@ export default {
 
 .header{
   text-align: center;
+}
+
+.buttons{
+  padding: 20px
 }
 </style>
