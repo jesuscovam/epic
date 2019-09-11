@@ -142,7 +142,21 @@ export default {
   async created() {
     const resp = await axios.get("https://epic-4408f.firebaseio.com/.json");
 
-    this.views.push(resp.data.cenotes.tulum);
+    // this.views.push(resp.data.cenotes.tulum);
+
+    switch (this.$store.state.valor3) {
+      case "Tulum":
+        this.views.push(resp.data.cenotes.tulum);
+        break;
+
+      case "Puerto Morelos":
+        this.views.push(resp.data.cenotes.pto);
+        break;
+
+      default:
+        this.views.push(resp.data.cenotes.tulum);
+        break;
+    }
     switch (this.$store.state.valor1) {
       case "Parques":
         this.views.push(resp.data.playa.parques.xcaret);
@@ -152,8 +166,8 @@ export default {
         this.views.push(resp.data.playa.antros.mix.coco);
         break;
 
-      case "Comida":
-        this.views.push(resp.data.playa.rest.mex.laparrilla);
+      case "Arqueologia":
+        this.views.push(resp.data.ruinas.merida.chichen);
         break;
     }
 

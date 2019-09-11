@@ -28,6 +28,19 @@
           >
         </b-select>
       </b-field>
+      <b-field :label="preguntas[2].pregunta">
+        <b-select
+          placeholder="escoje"
+          class="center"
+          v-model="respuestas.valor3"
+        >
+          <option
+            v-for="respuesta in preguntas[2].respuestas"
+            :key="respuesta.id"
+            >{{ respuesta }}</option
+          >
+        </b-select>
+      </b-field>
 
       <button class="button is-primary" @click="enviar">
         Enviar
@@ -42,16 +55,21 @@ export default {
     return {
       respuestas: {
         valor1: "",
-        valor2: ""
+        valor2: "",
+        valor3: ""
       },
       preguntas: [
         {
           pregunta: "¿Qué te gustaría disfrutar en la Riviera Maya?",
-          respuestas: ["Parques", "Fiestas", "Comida"]
+          respuestas: ["Parques", "Fiestas", "Arqueologia"]
         },
         {
           pregunta: "¿Qué tipo de música escuchas en rotación?",
           respuestas: ["Rock", "Reggaeton", "Electronica", "Salsa"]
+        },
+        {
+          pregunta: "¿Cuál es tu destino en la Riviera Maya?",
+          respuestas: ["Playa del Carmen", "Puerto Morelos", "Tulum"]
         }
       ]
     };
@@ -61,22 +79,6 @@ export default {
       this.$store.dispatch("addValues", this.respuestas);
       this.$router.push("muestras");
     }
-    // filtro() {
-    //   switch (this.respuestas.valor1) {
-    //     case "Parques":
-    //       this.respuestasCalc.valor1 = 10;
-    //       break;
-    //
-    //     case "Fiestas":
-    //       this.respuestasCalc.valor1 = 20;
-    //       break;
-    //
-    //     case "Comida":
-    //       this.respuestasCalc.valor1 = 30;
-    //       break;
-    //   }
-    //   this.respuestasCalc.valor2 = this.respuestas.valor2;
-    // }
   },
   computed: {
     valores() {
