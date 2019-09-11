@@ -153,6 +153,9 @@ export default {
         this.views.push(resp.data.cenotes.pto);
         break;
 
+      case "Playa del Carmen":
+        this.views.push(resp.data.cenotes.playa);
+        break;
       default:
         this.views.push(resp.data.cenotes.tulum);
         break;
