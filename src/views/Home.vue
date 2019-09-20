@@ -16,3 +16,9 @@ export default {
   }
 };
 </script>
+<style lang="css" scoped>
+  .purple{
+    border: 1px solid mediumpurple;
+    border-radius: 3px;
+  }
+</style>

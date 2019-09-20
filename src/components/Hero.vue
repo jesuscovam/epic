@@ -2,11 +2,14 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-        <div class="hero center">
-          <h1 class="title">epic</h1>
-          <h2 class="subtitle">Reserva experiencias en la Riviera Maya</h2>
-          <router-link to="encuesta">
-            <button class=" button is-primary is-rounded">
+        <div class="hero left">
+          <p>Reserva</p>
+          <br>
+          <p>Experiencias en</p>
+          <p>La Riviera Maya</p>
+          <p id="realiza" class="">Realiza la encuesta</p>
+          <router-link to="encuesta" class="">
+            <button class=" button is-info is-rounded center">
               Encuesta
             </button>
           </router-link>
@@ -28,7 +31,20 @@ export default {};
 
 <style lang="css" scoped>
 .center{
+  margin-top: 15px;
+  text-align: center !important;
+}
+
+.left{
   margin-top: 90px;
-  text-align: center;
+  text-align: left;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+#realiza{
+  margin-top: 90px;
+  font-weight: normal;
+  font-size: .5em;
 }
 </style>

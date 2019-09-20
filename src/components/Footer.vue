@@ -1,7 +1,9 @@
 <template lang="html">
-  <footer class="footer">
-    <p>&copy; epic {{ year }}</p>
-  </footer>
+  <div class="footer">
+    <p>
+    <hr class="purple">
+    &copy; epic {{ year }}</p>
+  </div>
 </template>
 
 <script>
@@ -20,8 +22,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.purple{
+  border: 1px solid mediumpurple;
+  border-radius: 3px;
+}
 .footer{
-  background-color: #8c67ef;
-  text-align: center;
+  text-align: left;
+  padding-top: 0;
+  margin-top: 0;
+
 }
 </style>

@@ -15,6 +15,8 @@ export default {
 };
 </script>
 <style>
+
+
 html,
 body,
 div,
@@ -110,5 +112,9 @@ video {
 .comps-enter,
 .comps-leave-to {
   opacity: 0;
+}
+
+body{
+  font-family: "Poppins", sans-serif;
 }
 </style>

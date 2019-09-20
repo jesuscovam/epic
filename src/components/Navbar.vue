@@ -6,16 +6,15 @@
       </b-navbar-item>
     </template>
     <template slot="end">
-      <b-navbar-item tag="router-link" to="/encuesta">
-        <button class="button  is-rounded is-outlined">
+        <b-navbar-item tag="router-link" to="/encuesta" class="white">
           Encuesta
-        </button>
-      </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/">
-        <button class="button is-rounded">
+        </b-navbar-item>
+        <b-navbar-item tag="p" class="white">
+          |
+        </b-navbar-item>
+        <b-navbar-item tag="router-link" to="/" class="white">
           Contacto
-        </button>
-      </b-navbar-item>
+        </b-navbar-item>
     </template>
   </b-navbar>
 </template>
@@ -24,4 +23,8 @@
 export default {};
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.white{
+  color: white !important;
+}
+</style>
