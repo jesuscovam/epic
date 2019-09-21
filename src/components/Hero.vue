@@ -7,7 +7,7 @@
           <p>Experiencias en</p>
           <p>La Riviera Maya</p>
           <p id="realiza" class="center">Realiza la encuesta</p>
-          <router-link to="encuesta" class="center">
+          <router-link to="encuesta" class="center boton">
             <button class=" button is-info is-rounded center">
               Encuesta
             </button>
@@ -31,7 +31,11 @@ export default {};
 <style lang="css" scoped>
 .center{
   margin-top: 15px;
-  text-align: center !important;
+  text-align: left;
+}
+
+.boton{
+  margin-left: 10px;
 }
 
 .left{
@@ -55,6 +59,14 @@ export default {};
 
   #realiza{
    font-size: .8em;
+  }
+
+  .center{
+    text-align: center;
+  }
+
+  .boton{
+    margin-left: 0;
   }
 }
 </style>
