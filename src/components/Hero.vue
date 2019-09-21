@@ -50,7 +50,11 @@ export default {};
 @media (max-width: 600px){
   .left{
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.8em;
+  }
+
+  #realiza{
+   font-size: .8em;
   }
 }
 </style>
