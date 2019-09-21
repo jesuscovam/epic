@@ -7,8 +7,8 @@
           <br>
           <p>Experiencias en</p>
           <p>La Riviera Maya</p>
-          <p id="realiza" class="">Realiza la encuesta</p>
-          <router-link to="encuesta" class="">
+          <p id="realiza" class="center">Realiza la encuesta</p>
+          <router-link to="encuesta" class="center">
             <button class=" button is-info is-rounded center">
               Encuesta
             </button>
