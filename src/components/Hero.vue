@@ -46,4 +46,11 @@ export default {};
   font-weight: normal;
   font-size: .5em;
 }
+
+@media (max-width: 600px){
+  .left{
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
 </style>
