@@ -4,7 +4,6 @@
       <div class="column">
         <div class="hero left">
           <p>Reserva</p>
-          <br>
           <p>Experiencias en</p>
           <p>La Riviera Maya</p>
           <p id="realiza" class="center">Realiza la encuesta</p>
