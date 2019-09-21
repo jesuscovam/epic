@@ -6,13 +6,13 @@
       </b-navbar-item>
     </template>
     <template slot="end">
-        <b-navbar-item tag="router-link" to="/encuesta" class="white">
+        <b-navbar-item tag="router-link" to="/encuesta" class="">
           Encuesta
         </b-navbar-item>
-        <b-navbar-item tag="p" class="white">
+        <b-navbar-item tag="p" class="">
           |
         </b-navbar-item>
-        <b-navbar-item tag="router-link" to="/" class="white">
+        <b-navbar-item tag="router-link" to="/" class="">
           Contacto
         </b-navbar-item>
     </template>
