@@ -2,7 +2,7 @@
   <div class="footer">
     <p>
     <hr class="purple">
-    &copy; epic {{ year }}</p>
+    &copy; epic/Jesus Cova {{ year }}</p>
   </div>
 </template>
 
